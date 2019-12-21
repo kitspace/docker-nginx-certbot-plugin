@@ -9,7 +9,7 @@ nginx -g "daemon off;" &
 if [ "$RUN_CERTBOT" == "true" ]; then 
    # check for undefined variables
    set -u 
-   # Run certbot which should get and certificates and modify you nginx config
+   # Run certbot which should get certificates and modify you nginx config
    certbot --nginx --domains ${CERTBOT_DOMAINS} --email ${CERTBOT_EMAIL} --agree-tos --no-redirect --reinstall --non-interactive;
 else
 echo "Not requesting certificates through certbot, set RUN_CERTBOT=true to run."
