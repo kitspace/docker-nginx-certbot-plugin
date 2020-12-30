@@ -12,9 +12,8 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: kitspace/docker-nginx-certbot-plugin/image
-          tag_with_ref: true
-
+          push: true
+          tags: kitspace/docker-nginx-certbot-plugin:latest
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+       
